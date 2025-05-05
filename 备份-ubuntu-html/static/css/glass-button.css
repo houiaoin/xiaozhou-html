@@ -1,0 +1,86 @@
+/* glass-button.css */
+.glass-card button {
+  min-width: 120px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 17px -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Noto Sans SC", sans-serif;
+  color: #fff;
+  user-select: none;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.1s ease-out,
+    background 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+  will-change: transform, background, box-shadow;
+  cursor: pointer;
+}
+.glass-card button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+.glass-card button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31, 145, 255, 0.6);
+}
+.glass-card button:active {
+  transform: scale(0.95);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ——— 过渡带整体 ——— */
+#transition-band {
+  position: relative;
+  height: 220px; /* 可根据需要调高或调矮 */
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ——— 玻璃卡片 ——— */
+.glass-card {
+  padding: 24px 32px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+  /* 弹入动画初始状态 */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardPopIn 0.8s forwards 0.2s;
+}
+
+@keyframes cardPopIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ——— 下滑箭头 弹跳动画 ——— */
+.down-arrow {
+  margin-top: 16px;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.6);
+  animation: arrowBounce 1.2s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
